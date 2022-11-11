@@ -1,0 +1,13 @@
+
+#boton{
+    justify-content: center;
+    display: flex;
+    text-align: center;
+
+
+
+
+}
+#boton button{
+    color: blue;
+}
