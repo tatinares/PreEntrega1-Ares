@@ -1,13 +1,39 @@
+*{
+    margin: 0;
+}
+
+main{
+    margin-top: 17rem;
+   
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
 
 #boton{
-    justify-content: center;
-    display: flex;
+   
     text-align: center;
-
-
-
-
 }
 #boton button{
-    color: blue;
+    color: white;
+    background-color: brown;
+    padding: 8px 20px;
+    margin-top: 3rem;
+    justify-content: center;
+    
+}
+.fondo{
+    
+    width: 100%;
+    height: 100%;
+    
+    background-image: url('https://diccionarioactual.com/wp-content/uploads/2017/01/verduler%C3%ADa.jpg');
+   
+}
+h2{
+    
+    padding-top: 80px;
+   justify-content: center;
+   color: aliceblue;
 }
