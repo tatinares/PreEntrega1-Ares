@@ -36,9 +36,16 @@ function seguir(){
         simulador()
 
     }
+    
     else if(decision == 2){
+        if(total>1500){
+            //Descuentos por compras mayor a $1500
+            alert(`Tenemos un descuento del 13% para usted!
+            El total es de :$${total-(total*13/100)}`)
+        }
+        else{
         alert(`Muchas Gracias por su compra! \n
-        El total es de $${total}`) 
+        El total es de $${total}`) }
         
     }
     else{
@@ -116,5 +123,5 @@ function simulador(){
 }
 alert(`Bienvenidos a verduleria San José!`)
 simulador()
-//Redirecciona  la pagina principal
+//Redirecciona  la pagina
 window.location.href = "index.html";
