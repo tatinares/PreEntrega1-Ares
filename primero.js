@@ -66,7 +66,7 @@ function simulador(){
             6- 🧄 Ajo $${ajo} /unidad
             7- 🥑 Palta $${palta} /kg
             8- 🫑 Pimiento $${pimiento} /kg
-            10- 💨 Salir`)
+            9- 💨 Salir`)
     )
    switch (eleccion){
     case 1:
@@ -111,7 +111,7 @@ function simulador(){
         seguir()
         break;
 
-    case 10:
+    case 9:
         break    
     default:
         
