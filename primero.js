@@ -1,15 +1,36 @@
 //Declaracion de variables
-const tomate = 310;
-const aceitunas = 500;
+
+/*const aceitunas = 500;
 const lechuga = 100;
 const papa = 240;
 const cebolla = 300;
 const palta = 1000;
 const ajo = 130;
-const pimiento = 460;
+const pimiento = 460;*/
+
+const tomate = new Verdura('tomate',310)
+const lechuga = new Verdura('lechuga',100)
+const cebolla = new Verdura('cebolla',300)
+const palta = new Verdura('palta',1000)
+const ajo = new Verdura('ajo',130)
+const pimiento = new Verdura('pimiento',460)
+const aceitunas = new Verdura('aceitunas', 450)
+const papa = new Verdura('papa', 450)
+
+let carrito = []
 let kg = 0
 let total = 0
 let contador = 0
+
+
+function Verdura(producto, precio){
+    this.producto = producto
+    this.precio = precio}
+
+
+
+
+
 
 
 function contadors(){
@@ -30,6 +51,7 @@ function seguir(){
     let decision = (prompt(
         `Desea Seguir comprando? \n 
          El total es de : $${total}
+         lleva:${carrito}
          1- ✅ SI              2- ❌ NO`))
 
     if (decision == 1){
@@ -58,56 +80,57 @@ function simulador(){
     
    let eleccion = parseInt(
         prompt(`Qué desea comprar?:
-            1- 🍅 Tomate $${tomate} /kg
-            2- 🫒 Aceitunas $${aceitunas} /kg
-            3- 🥬 Lechuga $${lechuga} /unidad
-            4- 🥔 Papa $${papa} /kg
-            5- 🧅 Cebolla $${cebolla} /kg
-            6- 🧄 Ajo $${ajo} /unidad
-            7- 🥑 Palta $${palta} /kg
-            8- 🫑 Pimiento $${pimiento} /kg
+            1- 🍅 Tomate $${tomate.precio} /kg
+            2- 🫒 Aceitunas $${aceitunas.precio} /kg
+            3- 🥬 Lechuga $${lechuga.precio} /unidad
+            4- 🥔 Papa $${papa.precio} /kg
+            5- 🧅 Cebolla $${cebolla.precio} /kg
+            6- 🧄 Ajo $${ajo.precio} /unidad
+            7- 🥑 Palta $${palta.precio} /kg
+            8- 🫑 Pimiento $${pimiento.precio} /kg
             9- 💨 Salir`)
     )
    switch (eleccion){
     case 1:
         kg = prompt('¿Cuantos kilos de tomate desea?', tomate)
-        total = total+kg*tomate;
+        total = total+kg*tomate.precio;
+        carrito.push(tomate.producto)
 
         seguir()
         break;
     case 2:
         kg = prompt('¿Cuantos kilos de aceitunas desea? ')
-        total = total+kg*aceitunas
+        total = total+kg*aceitunas.precio
         seguir()
         break;
      case 3:
         kg = prompt('¿Cuantos lechugas desea? ')
-        total = total+kg*lechuga
+        total = total+kg*lechuga.precio
         seguir()
         break;
     case 4:
         kg = prompt(`¿Cuantos kilos de papa desea?`)
-        total = total+kg*papa
+        total = total+kg*papa.precio
         seguir()
         break;
     case 5:
         kg = prompt(`¿Cuantos kilos de cebolla desea?`)
-        total = total+kg*cebolla
+        total = total+kg*cebolla.precio
         seguir()
         break;
     case 6:
         kg = prompt(`¿Cuantos kilos de ajo desea?`)
-        total = total+kg*ajo
+        total = total+kg*ajo.precio
         seguir()
         break;
     case 7:
         kg = prompt(`¿Cuantos kilos de palta desea?`)
-        total = total+kg*palta
+        total = total+kg*palta.precio
         seguir()
         break;        
     case 8:
         kg = prompt(`¿Cuantos kilos de pimiento desea?`)
-        total = total+kg*pimiento
+        total = total+kg*pimiento.precio
         seguir()
         break;
 
