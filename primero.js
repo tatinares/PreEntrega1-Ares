@@ -22,13 +22,17 @@ let kg = 0
 let total = 0
 let contador = 0
 
+class Producto{
+    Verdura(producto, precio, kilos){
+        this.producto = producto
+        this.precio = precio
+        this.kilos = kilos}}
 
-function Verdura(producto, precio){
-    this.producto = producto
-    this.precio = precio}
 
+function contarCarrito(){
+    carrito.push()
 
-
+}
 
 
 
