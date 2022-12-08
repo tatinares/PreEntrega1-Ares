@@ -44,37 +44,37 @@ function simulador(){
      )
     switch (eleccion){
      case 1:
-         kg = prompt('¿Cuantos kilos de tomate desea?') 
+         kg = parseInt(prompt('¿Cuantos kilos de tomate desea?')) 
          tomate.asignarPrecio(kg*tomate.precio)
          carrito.push(tomate)
          seguir()
          break;
 
      case 2:
-         kg = prompt('¿Cuantos kilos de aceitunas desea? ')  
+         kg = parseInt(prompt('¿Cuantos kilos de aceitunas desea? ')  )
          aceitunas.asignarPrecio(kg*aceitunas.precio)
          carrito.push(aceitunas)
          seguir()
          break;
 
       case 3:
-         kg = prompt('¿Cuantos lechugas desea? ')
-         
+         kg = parseInt(prompt('¿Cuantos lechugas desea? ')
+     )    
          lechuga.asignarPrecio(kg*lechuga.precio)
          carrito.push(lechuga)
          seguir()
          break;
 
      case 4:
-         kg = prompt(`¿Cuantos kilos de papa desea?`)
-         
+         kg = parseInt(prompt(`¿Cuantos kilos de papa desea?`)
+ )        
          papa.asignarPrecio(kg*papa.precio)
          carrito.push(papa)
          seguir()
          break;
 
      case 5:
-         kg = prompt(`¿Cuantos kilos de cebolla desea?`)
+         kg = parseInt(prompt(`¿Cuantos kilos de cebolla desea?`))
         
          cebolla.asignarPrecio(kg*cebolla.precio)
          carrito.push(cebolla)
@@ -82,22 +82,22 @@ function simulador(){
          break;
 
      case 6:
-         kg = prompt(`¿Cuantos kilos de ajo desea?`)
-        
+         kg = parseInt(prompt(`¿Cuantos kilos de ajo desea?`)
+  )      
          ajo.asignarPrecio(kg*ajo.precio)
          carrito.push(ajo)
          seguir()
          break;
      case 7:
 
-         kg = prompt(`¿Cuantos kilos de palta desea?`)
-         
+         kg = parseInt(prompt(`¿Cuantos kilos de palta desea?`)
+)         
          palta.asignarPrecio(kg*palta.precio)
          carrito.push(palta)
          seguir()
          break;        
      case 8:
-         kg = prompt(`¿Cuantos kilos de pimiento desea?`)
+         kg = parseInt(prompt(`¿Cuantos kilos de pimiento desea?`))
          
          pimiento.asignarPrecio(kg*pimiento.precio)
          carrito.push(pimiento)
@@ -116,14 +116,22 @@ function simulador(){
  }
 
 function seguir(){
-        precioTotali()
+        
+    carritoNombre = []
+    for (let i=0;i<carrito.length;i++){
+        
+        carritoNombre.push(carrito[i].producto)
+       
+    }
+
     
-     
     let decision = (prompt(
         `Desea Seguir comprando? \n 
+        lleva: 
+${carritoNombre.join(('\n'))}
          
          El total es de : $${precioTotali()}
-         1- ✅ SI              2- ❌ NO`))
+         1- ✅ SI      2- ❌ NO    3- ELIMINAR PRODUCTO`))
 
     if (decision == 1){
         simulador()
@@ -136,11 +144,16 @@ function seguir(){
             alert(`Tenemos un descuento del 13% para usted!
             El total es de :$${precioTotali()-(precioTotali()*13/100)}`)
         }
+   
         else{
         alert(`Muchas Gracias por su compra! \n
         El total es de $${precioTotali()}`) }
         
     }
+    else if(decision == 3){
+        eliminarProducto()
+        seguir()
+    }    
     else{
         alert('Porfavor elija una de las opciones disponibles.')
         seguir()
@@ -148,7 +161,20 @@ function seguir(){
 }
 
 function eliminarProducto(){
-    let eliminarelecc = prompt(`Seleccione que Producto desea eliminar de la lista.`)
+    //Elimina un producto del carrito de compras
+
+    let eliminareleccc = prompt(
+        `Escriba el nombre del producto que desea eliminar:
+        ${carritoNombre.join('\n')}`)
+        const finderd = (element) => element  === eliminareleccc
+        let indd = carritoNombre.findIndex(finderd)
+        console.log(indd)
+        carritoNombre.splice(indd,1)
+        carrito.splice(indd,1)
+
+       console.log(carritoNombre.some(finderd))    
+
+    
 }
 
 //Devuelve el precio total de la compra
@@ -179,4 +205,5 @@ window.location.href = "index.html";
 
 //for (inicialización; condición; actualización) { 
    	//sentencias a ejecutar en cada iteración 
+    //filter,find,map,some,etc.
 
