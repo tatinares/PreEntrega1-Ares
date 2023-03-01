@@ -27,7 +27,7 @@ let carritoNombre = []
 
 
 
-//Funciòn Principal
+//Funciòn Principal.
 function simulador(){
     
     let eleccion = parseInt(
